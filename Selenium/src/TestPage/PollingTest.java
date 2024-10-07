@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import core.page;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class PollingTest extends page{
 
@@ -27,6 +28,21 @@ public class PollingTest extends page{
         {
             driver.findElement(By.xpath("//*[@id=\"pollform\"]/table/tbody/tr[2]/td/input[2]")).click();
         }
+
+        String q = driver.findElement(By.xpath("//*[@id=\"mathq2\"]")).getText();
+        System.out.println(q);
+        StringTokenizer str = new StringTokenizer(q,"+=");
+        int no1 = Integer.parseInt(str.nextToken().trim());
+        int no2 = Integer.parseInt(str.nextToken().trim());
+
+        int sum = no1 + no2;
+
+        String sum1 = Integer.toString(sum);
+
+        driver.findElement(By.xpath("//*[@id=\"mathuserans2\"]")).sendKeys(sum1);
+
+        driver.findElement(By.xpath("//*[@id=\"pollform\"]/table/tbody/tr[4]/td/div")).click();
+
 
 
     }
