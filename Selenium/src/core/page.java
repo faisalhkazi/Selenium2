@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
 
 
 public class page {
@@ -36,6 +37,8 @@ public class page {
         }
 
         driver.get(url);
+        // Implicit wait
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         driver.manage().window().maximize();
     }
 
